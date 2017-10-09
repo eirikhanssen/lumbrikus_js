@@ -1,5 +1,8 @@
-window.addEventListener("load", init, false);
-
+/*jslint browser: true */
+/*global window */
 function init() {
-console.log("init");
+    'use strict';
+    console.log("init");
 }
+
+window.addEventListener("load", init, false);
