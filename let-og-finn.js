@@ -1,11 +1,10 @@
 /*jslint browser: true */
-/*global window, Snap, alert */
+/*global window, Snap */
 function init() {
     'use strict';
     console.log("let-og-finn init");
     var s = new Snap("#SVG_let_og_finn");
     var group_active_zones = s.select("#g_active_zones");
-    //console.log(group_active_zones);
     group_active_zones.addClass('show');
 
     function detectIE() {
@@ -47,11 +46,12 @@ function init() {
 
     // workaround for browsers not supporting paint-order, namely internet explorer and edge among newer browsers
     if (msie_version !== false) {
-        alert('msie detected!');
+        // msie browser detected, apply workaround
         var words = s.selectAll('#g_ord > text, #g_ord > use');
         var wordclones_container = s.select('#g_ord_clones');
         words.forEach(function (el) {
             var use = el.use();
+            use.addClass('show');
             wordclones_container.append(use);
         });
     }
